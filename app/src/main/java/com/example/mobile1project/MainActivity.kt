@@ -1,6 +1,6 @@
 package com.example.mobile1project
 
-import IMCScreen
+import ConverterScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Mobile1ProjectTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    IMCScreen()
+                    ConverterScreen()
                 }
             }
         }
@@ -41,6 +41,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     Mobile1ProjectTheme {
-        Greeting("Ricardo")
+        Greeting("Yajahira")
     }
 }
