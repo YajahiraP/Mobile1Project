@@ -15,6 +15,8 @@ sealed class ScreenNavigation(val route: String, val label: String, val icon: Im
     object Sum : ScreenNavigation("SumRoute", "Sum", Icons.Default.Event)
     object List : ScreenNavigation("ListRoute", "List", Icons.Default.Event)
     object Location : ScreenNavigation("LocationRoute", "Location", Icons.Default.Event)
+    object ExamenThirdPartial : ScreenNavigation("ExamenRoute", "Examen", Icons.Default.Event)
+
 
 
 }

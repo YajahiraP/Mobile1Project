@@ -19,11 +19,17 @@ import com.example.mobile1project.ids.sum.views.SumView
 import com.example.mobile1project.ids.Login.Views.LoginView
 import com.example.mobile1project.ids.sum.ViewModels.SumViewModel
 import com.example.mobile1project.ids.list.Views.ListView
+import com.example.mobile1project.thirdpartial.ExamenThirdPartial.ViewModels.StudentViewModel
 import com.example.mobile1project.thirdpartial.Location.Views.LocationListView
+import com.example.mobile1project.thirdpartial.ExamenThirdPartial.Views.StudentListView
+
+
+
 
 
 @Composable
-fun TabBarNavigationView(navController: NavHostController = rememberNavController()) {
+fun TabBarNavigationView(navController: NavHostController = rememberNavController(),
+                         studentViewModel: StudentViewModel) {
     val items = listOf(
         ScreenNavigation.Ids,
         ScreenNavigation.FirstPartial,
@@ -66,7 +72,7 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
             composable(ScreenNavigation.Converter.route) { ConverterView() }
             composable(ScreenNavigation.List.route) { ListView() }
             composable(ScreenNavigation.Location.route) { LocationListView() }
-
+            composable(ScreenNavigation.ExamenThirdPartial.route) { StudentListView(uiState = studentViewModel.uiState) }
             composable(ScreenNavigation.Sum.route) {
                 val viewModel: SumViewModel = viewModel()
                 SumView(viewModel)
