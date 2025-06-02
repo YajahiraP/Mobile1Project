@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
+import com.example.mobile1project.examenfinal.ViewModels.RestaurantViewModel
 import com.example.mobile1project.ids.IdsView
 import com.example.mobile1project.firstpartial.FirstPartialView
 import com.example.mobile1project.secondpartial.SecondPartialView
@@ -22,6 +23,11 @@ import com.example.mobile1project.ids.list.Views.ListView
 import com.example.mobile1project.thirdpartial.ExamenThirdPartial.ViewModels.StudentViewModel
 import com.example.mobile1project.thirdpartial.Location.Views.LocationListView
 import com.example.mobile1project.thirdpartial.ExamenThirdPartial.Views.StudentListView
+import com.example.mobile1project.examenfinal.Views.RestaurantView
+import com.example.mobile1project.examenfinal.Views.RestaurantDetailsView
+
+
+
 
 
 
@@ -29,12 +35,14 @@ import com.example.mobile1project.thirdpartial.ExamenThirdPartial.Views.StudentL
 
 @Composable
 fun TabBarNavigationView(navController: NavHostController = rememberNavController(),
-                         studentViewModel: StudentViewModel) {
+                         studentViewModel: StudentViewModel,
+                         restaurantViewModel: RestaurantViewModel) {
     val items = listOf(
         ScreenNavigation.Ids,
         ScreenNavigation.FirstPartial,
         ScreenNavigation.SecondPartial,
-        ScreenNavigation.ThirdPartial
+        ScreenNavigation.ThirdPartial,
+        ScreenNavigation.examenfinal
 
     )
 
@@ -73,6 +81,18 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
             composable(ScreenNavigation.List.route) { ListView() }
             composable(ScreenNavigation.Location.route) { LocationListView() }
             composable(ScreenNavigation.ExamenThirdPartial.route) { StudentListView(uiState = studentViewModel.uiState) }
+            composable(ScreenNavigation.examenfinal.route) {
+                RestaurantView(viewModel = restaurantViewModel, navController = navController)
+            }
+            composable("detail/{restaurantId}") { backStackEntry ->
+                val restaurantId = backStackEntry.arguments?.getString("restaurantId")
+                RestaurantDetailsView(
+                    restaurantId = restaurantId,
+                    viewModel = restaurantViewModel,
+                    navController = navController
+                )
+            }
+
             composable(ScreenNavigation.Sum.route) {
                 val viewModel: SumViewModel = viewModel()
                 SumView(viewModel)

@@ -75,5 +75,11 @@ dependencies {
     implementation("com.squareup.moshi:moshi:1.15.0")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
     implementation ("androidx.navigation:navigation-compose:2.6.0")
+    implementation("androidx.compose.runtime:runtime:1.5.0")
+    implementation("com.google.maps.android:maps-compose:2.11.4")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+    
 
 }

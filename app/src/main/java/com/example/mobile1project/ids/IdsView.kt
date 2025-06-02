@@ -47,16 +47,16 @@ fun IdsView(navController: NavController) {
             Text("Ir a List")
         }
         Button(
-            onClick = { navController.navigate("LocationRoute") },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Ir a Location")
-        }
-        Button(
             onClick = { navController.navigate("ExamenRoute") },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Mostrar Estudiantes")
+        }
+        Button(
+            onClick = { navController.navigate("restaurantList") },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Ver Restaurantes")
         }
 
     }
