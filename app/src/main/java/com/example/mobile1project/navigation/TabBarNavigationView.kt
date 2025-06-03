@@ -41,8 +41,7 @@ fun TabBarNavigationView(navController: NavHostController = rememberNavControlle
         ScreenNavigation.Ids,
         ScreenNavigation.FirstPartial,
         ScreenNavigation.SecondPartial,
-        ScreenNavigation.ThirdPartial,
-        ScreenNavigation.examenfinal
+        ScreenNavigation.ThirdPartial
 
     )
 
